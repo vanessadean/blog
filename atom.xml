@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Codemaster Extraordinaire]]></title>
+  <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
+  <link href="http://vanessadean.github.io/"/>
+  <updated>2014-06-04T10:49:54-04:00</updated>
+  <id>http://vanessadean.github.io/</id>
+  <author>
+    <name><![CDATA[Vanessa Dean]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My First Post]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/04/my-first-post/"/>
+    <updated>2014-06-04T10:45:51-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/04/my-first-post</id>
+    <content type="html"><![CDATA[<p>Helloooooooooooo, world!</p>
+]]></content>
+  </entry>
+  
+</feed>
