@@ -4,7 +4,7 @@
   <title><![CDATA[Category: School | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-04T10:49:54-04:00</updated>
+  <updated>2014-06-07T20:28:08-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What I Learned in My First Week at the Flatiron School]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/07/what-i-learned-in-my-first-week-at-the-flatiron-school/"/>
+    <updated>2014-06-07T19:45:07-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/07/what-i-learned-in-my-first-week-at-the-flatiron-school</id>
+    <content type="html"><![CDATA[<h2>Everything is an object in Ruby</h2>
+
+<p>Even methods act like objects. We iterated over a method in a lab this week, e.g. <code>assign_rooms(speakers).each</code> and I had never seen that before. A tiny explosion happened in my brain. When the dust settled I realized that I was actually just iterating over the return value, an array, and that totally makes sense.</p>
+
+<h2>Error messages are there to help</h2>
+
+<p>Read all of the words. Pay attention to what they are saying. Your computer is trying to tell you something.</p>
+
+<p><img src="../images/zoolander_in_the_computer.jpg" title="Zoolander - it's in the computer" alt="alt text" /></p>
+
+<h2>Specs are for following</h2>
+
+<p>I like to do things myyyyyy waaaaaaay, but nothing is created in a vacuum. I need to learn how to follow directions and build the best possible program following the set specifications.</p>
+
+<h2>Asking questions is awesome</h2>
+
+<p>I think I understand everything and most of the time I understand nothing. To fix this I&rsquo;ve become that annoying guy at the table constantly asking questions. That&rsquo;s okay though because&hellip;</p>
+
+<h2>We are here to help each other</h2>
+
+<p>So many people have generously and patiently helped me this week. Paying it forward is the right thing to do and it&rsquo;s the best way to figure out whether or not you actually understand something.</p>
+
+<h2>Cold brew coffee is key</h2>
+
+<ol>
+<li>Let French press steep in the fridge overnight.</li>
+<li>Pour coffee straight into mouth the next morning.</li>
+</ol>
+
+
+<h2>It&rsquo;s time to embrace snacking</h2>
+
+<p>```ruby
+def afternoon_snack_attack
+  if block_given? #snack_given?</p>
+
+<pre><code>yield
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>"(╯°□°)╯︵ ┻━┻"
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>afternoon_snack_attack { puts &ldquo;nom nom nom :] :) :D&rdquo; }
+```</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My First Post]]></title>
