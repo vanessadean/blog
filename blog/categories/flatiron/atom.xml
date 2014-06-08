@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-07T20:28:08-04:00</updated>
+  <updated>2014-06-07T22:11:52-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -54,7 +54,10 @@
 def afternoon_snack_attack
   if block_given? #snack_given?</p>
 
-<pre><code>yield
+<pre><code>yield("M&amp;Ms")
+yield("Cheezits")
+yield("Swedish Fish")
+":] :) :D"
 </code></pre>
 
 <p>  else</p>
@@ -65,7 +68,7 @@ def afternoon_snack_attack
 <p>  end
 end</p>
 
-<p>afternoon_snack_attack { puts &ldquo;nom nom nom :] :) :D&rdquo; }
+<p>afternoon_snack_attack { |snack| puts &ldquo;eating #{snack} nom nom nom&rdquo;  }
 ```</p>
 ]]></content>
   </entry>
