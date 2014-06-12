@@ -4,7 +4,7 @@
   <title><![CDATA[Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-07T22:11:52-04:00</updated>
+  <updated>2014-06-11T21:55:39-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,211 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Teaching a New Dog Old Tricks]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks/"/>
+    <updated>2014-06-11T18:22:13-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks</id>
+    <content type="html"><![CDATA[<p>This week at Flatiron School we started lectures on object orientation and during our discussion on <code>class</code> there was one example that really helped me understand some basic ruby concepts. Here is my own take on that example:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Dog</span>
+</span><span class='line'>  <span class="kp">attr_accessor</span>   <span class="ss">:name</span><span class="p">,</span> <span class="ss">:breed</span>
+</span><span class='line'>  <span class="vc">@@all_dogs</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">breed</span><span class="o">=</span><span class="s2">&quot;mutt&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>    <span class="vi">@breed</span> <span class="o">=</span> <span class="n">breed</span>
+</span><span class='line'>    <span class="vc">@@all_dogs</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">bark</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Woof! I&#39;m </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">howl</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: aRuuuuuuuuuubeee! Doo be doooo!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">all</span>
+</span><span class='line'>    <span class="vc">@@all_dogs</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">find_dogs_by_breed</span><span class="p">(</span><span class="n">breed</span><span class="p">)</span>
+</span><span class='line'>    <span class="no">Dog</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">select</span> <span class="p">{</span> <span class="o">|</span><span class="n">dog</span><span class="o">|</span> <span class="n">dog</span><span class="o">.</span><span class="n">breed</span> <span class="o">==</span> <span class="n">breed</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Let’s start at the top with attr_accessor. This is a familiar line of code and I know it is necessary for reading and writing to the variable <code>:name</code>, but I never thought about how it works. It wasn&rsquo;t until the moment that we discussed it in class that I understood that the code behind attr_accessor is this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">name</span><span class="o">=</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">name</span>
+</span><span class='line'>  <span class="nb">name</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This was especially helpful in clearing up my confusion about the equal sign I occasionally see in method names. This equal sign makes assigning a name look something like:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">fido</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="err">“</span><span class="no">Fido</span><span class="err">”</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>which is a great example of how ruby’s flexible syntax makes it such a friendly language. The parenthesis can be dropped and a space added in front of the equal sign to mirror an algebraic assignment, instead of the equally valid but less familiar <code>fido.name=(“Fido”)</code>.</p>
+
+<p>We also discussed class methods and the concept of self in lecture. I was pretty clear on how instance methods work (like using fido.bark to make an instance of the Dog class bark), but class methods were a little hazier. In one our Flatiron School pre-work exercises there was a directive to “Create an array constant SCHOOLS that stores all instances of your School class.” I was like whaaah? But our Dog class has a nice example of how to approach that problem (explanation in the comments):</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="vc">@@all_dogs</span> <span class="o">=</span> <span class="o">[]</span>  <span class="c1">#a class variable is created to hold all instances of the Dog class in an array</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">breed</span><span class="o">=</span><span class="err">“</span><span class="n">mutt</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'>    <span class="vi">@name</span> <span class="o">=</span> <span class="nb">name</span>
+</span><span class='line'>    <span class="vi">@breed</span> <span class="o">=</span> <span class="n">breed</span>
+</span><span class='line'>    <span class="vc">@@all_dogs</span> <span class="o">&lt;&lt;</span> <span class="nb">self</span>  <span class="c1">#each time a new dog is initialized it is added to the all_dogs array</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">all</span>  <span class="c1">#a class method &#39;all&#39; is created to access the all_dogs array</span>
+</span><span class='line'>    <span class="vc">@@all_dogs</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is important to note the <code>self</code> in the method signature of our <code>all</code> method. Self in this case is the Dog class. This method can be called on the class itself rather than an instance of the class. It is different from the self found here within the body of the instance method <code>bark</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">bark</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Woof! I&#39;m </span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">.&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this <code>bark</code> instance method, self is referring to an instance of the class (e.g. Fido) and not the Dog class.</p>
+
+<p>An instance method is useful if you want to perform an action on one particular instance of a class, but sometimes you want to call a method on the entire class. Here is an example: let&rsquo;s adopt some dogs. We can simulate this by creating several new instances of the Dog class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">fido</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Fido&quot;</span><span class="p">)</span>  <span class="c1">#no breed is provided because Fido is a mutt and that is the default value for breed</span>
+</span><span class='line'><span class="n">snoopy</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Snoopy&quot;</span><span class="p">,</span> <span class="s2">&quot;Beagle&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">jacques</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Jacques&quot;</span><span class="p">,</span> <span class="s2">&quot;French Bulldog&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">chanel</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Chanel&quot;</span><span class="p">,</span> <span class="s2">&quot;French Bulldog&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">fifi</span> <span class="o">=</span> <span class="no">Dog</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Fifi&quot;</span><span class="p">,</span> <span class="s2">&quot;Poodle&quot;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now let&rsquo;s say that we want to order some monogrammed sweaters for our French Bulldogs. We can use our handy class method called <code>self.find_dogs_by_breed</code> to print out a list of our Frenchies&#8217; names like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Dog</span><span class="o">.</span><span class="n">find_dogs_by_breed</span><span class="p">(</span><span class="s2">&quot;French Bulldog&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dog</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">dog</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#=&gt; Jacques</span>
+</span><span class='line'><span class="c1">#=&gt; Chanel</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+Or say that we decide to teach our dogs a new party trick and we want all of them to howl in unison. We can use our class method <code>self.all</code> in conjunction with our instance method</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">howl</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: aRuuuuuuuuuubeee! Doo be doooo!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to make all the instances of our Dog howl in symphony like so:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Dog</span><span class="o">.</span><span class="n">all</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">dog</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">dog</span><span class="o">.</span><span class="n">howl</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">#=&gt; Fido: aaaRuuuuuuubeee! Doo be doooo!</span>
+</span><span class='line'><span class="c1">#=&gt; Snoopy: aaaRuuuuuuubeee! Doo be doooo!</span>
+</span><span class='line'><span class="c1">#=&gt; Jacques: aaaRuuuuuuubeee! Doo be doooo!</span>
+</span><span class='line'><span class="c1">#=&gt; Chanel: aaaRuuuuuuubeee! Doo be doooo!</span>
+</span><span class='line'><span class="c1">#=&gt; Fifi: aaaRuuuuuuubeee! Doo be doooo!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Looking at the self in the method signature for the class method <code>self.all</code> and the self within the body of the instance method <code>howl</code> and thinking about what each self is pointing to and why is key to understanding the notion of self in ruby.</p>
+
+<p>Oh, <del>love</del> <strong>ruby</strong> will make a dog howl in rhyme.
+&ndash; Francis Beaumont</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What I Learned in My First Week at the Flatiron School]]></title>
