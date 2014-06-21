@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SQL Sux and Ruby Rulz - Codemaster Extraordinaire</title>
+  <meta name="author" content="Vanessa Dean">
+
+  
+  <meta name="description" content="This week at the Flatiron School we started discussing databases and models and studying SQL. This is a big step towards the holy grail of building &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://vanessadean.github.io/blog/2014/06/19/sql-sux-and-ruby-rulz">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Codemaster Extraordinaire" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+
+  
+
+</head>
+
+<body   >
+  <nav id="main-nav" role="navigation">
+<ul class="main-navigation">
+  <li><a href="/" class="nav-link">Blog</a></li>
+  <li><a href="/blog/archives" class="nav-link">Archives</a></li>
+  <li><a href="/atom.xml" class="nav-link">RSS</a></li>
+</ul>
+
+</nav>
+  
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">SQL Sux and Ruby Rulz</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-19T22:14:51-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>This week at the Flatiron School we started discussing databases and models and studying SQL. This is a big step towards the holy grail of building fully functional web applications, but it’s not much fun. Staring at lifeless SQL commands makes it painfully clear why learning a flexible and expressive language like ruby is so much more fun. When you write in ruby you have plenty of opportunities to share your own style and to provide a window into the thought process behind your solution. In that spirit, I’d like to share a few examples from a simple lab we recently completed.</p>
+
+<p>The purpose of this lab was to confirm the identity of a triangle given the length of its sides &ndash; equilateral (all sides of equal length), isosceles (two sides equal) or scalene (no sides equal).</p>
+
+<p>Here is my code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">kind</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">!</span><span class="n">valid_triangle?</span> <span class="c1"># checks to see if valid values have been submitted for the length of each side</span>
+</span><span class='line'>      <span class="k">raise</span> <span class="no">TriangleError</span> <span class="c1"># raises an error if invalid </span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">side1</span> <span class="o">==</span> <span class="n">side2</span> <span class="c1"># checks for equality for first two sides </span>
+</span><span class='line'>        <span class="k">if</span> <span class="n">side2</span> <span class="o">==</span> <span class="n">side3</span> <span class="c1"># checks if the third side is also equal</span>
+</span><span class='line'>          <span class="ss">:equilateral</span>
+</span><span class='line'>        <span class="k">else</span>
+</span><span class='line'>          <span class="ss">:isosceles</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>      <span class="k">elsif</span> <span class="n">side2</span> <span class="o">==</span> <span class="n">side3</span> <span class="o">||</span> <span class="n">side1</span> <span class="o">==</span> <span class="n">side3</span> <span class="c1">#otherwise checks whether sides two and three are equal</span>
+</span><span class='line'>        <span class="ss">:isosceles</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="ss">:scalene</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">valid_triangle?</span>
+</span><span class='line'>    <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="p">(</span><span class="n">side1</span> <span class="o">+</span> <span class="n">side2</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">side3</span> <span class="o">||</span> <span class="p">(</span><span class="n">side1</span> <span class="o">+</span> <span class="n">side3</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">side2</span> <span class="o">||</span> <span class="p">(</span><span class="n">side2</span> <span class="o">+</span> <span class="n">side3</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">side1</span>
+</span><span class='line'>    <span class="c1"># it is not possible to have a triangle with one side longer than the sum of the other two sides</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="o">[</span><span class="n">side1</span><span class="p">,</span> <span class="n">side2</span><span class="p">,</span> <span class="n">side3</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">side</span><span class="o">|</span> <span class="c1"># it is not possible for the length of a side to be zero or a negative number</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">side</span> <span class="o">&lt;=</span> <span class="mi">0</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is begging to be refactored, especially the awkward use of !valid_triangle?, but it&rsquo;s a representative, unfiltered example of the meandering thought process that I take when solving a problem.</p>
+
+<p>Now let&rsquo;s take a look at a more polished solution from <a href="https://github.com/randallreedjr">randallreedjr</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">kind</span>
+</span><span class='line'>    <span class="k">if</span> <span class="n">valid?</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]==</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">return</span> <span class="ss">:equilateral</span>
+</span><span class='line'>      <span class="k">elsif</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">||</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">==</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">||</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">==</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+</span><span class='line'>        <span class="k">return</span> <span class="ss">:isosceles</span>
+</span><span class='line'>      <span class="k">else</span>
+</span><span class='line'>        <span class="k">return</span> <span class="ss">:scalene</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">raise</span> <span class="no">TriangleError</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">private</span>
+</span><span class='line'>   <span class="k">def</span> <span class="nf">valid?</span>
+</span><span class='line'>     <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">&amp;&amp;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">+</span> <span class="n">sides</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">&gt;</span> <span class="n">sides</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+</span><span class='line'>   <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here are my favorite things about this code:</p>
+
+<ul>
+<li>it does economical testing for each triangle scenario and for the validity test</li>
+<li>it is easy to follow</li>
+<li>the validity test is in a private method so the user can&rsquo;t hack his way into testing an impossible triangle</li>
+</ul>
+
+
+<p>It is built for business.</p>
+
+<p>For our final example, let&rsquo;s take a look at a solution from <a href="https://github.com/jbarrieault">jbarrieault</a> that is a bit quirkier:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">def</span> <span class="nf">triangle?</span>
+</span><span class='line'>    <span class="n">triangle</span> <span class="o">=</span> <span class="o">[</span><span class="n">side1</span><span class="p">,</span> <span class="n">side2</span><span class="p">,</span> <span class="n">side3</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">triangle</span><span class="o">.</span><span class="n">any?</span> <span class="k">do</span> <span class="o">|</span><span class="n">side</span><span class="o">|</span>
+</span><span class='line'>      <span class="n">side</span> <span class="o">==</span> <span class="kp">nil</span> <span class="o">||</span> <span class="n">side</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">side</span> <span class="o">!=</span> <span class="n">side</span><span class="o">.</span><span class="n">abs</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="n">triangle</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">test_side</span><span class="o">|</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kp">false</span> <span class="k">if</span> <span class="n">test_side</span> <span class="o">&gt;=</span> <span class="n">triangle</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="o">-</span><span class="n">test_side</span><span class="p">,</span><span class="ss">:+</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="kp">true</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">kind</span>
+</span><span class='line'>    <span class="k">raise</span> <span class="no">TriangleError</span> <span class="k">unless</span> <span class="n">triangle?</span>
+</span><span class='line'>    <span class="k">return</span> <span class="ss">:equilateral</span> <span class="k">if</span> <span class="o">[</span><span class="n">side1</span><span class="p">,</span> <span class="n">side2</span><span class="o">].</span><span class="n">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">side</span><span class="o">|</span> <span class="n">side</span> <span class="o">==</span> <span class="n">side3</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">return</span> <span class="ss">:isosceles</span>   <span class="k">if</span> <span class="n">side1</span> <span class="o">==</span> <span class="n">side2</span> <span class="o">||</span> <span class="n">side2</span> <span class="o">==</span> <span class="n">side3</span> <span class="o">||</span> <span class="n">side1</span> <span class="o">==</span> <span class="n">side3</span>
+</span><span class='line'>    <span class="k">return</span> <span class="ss">:scalene</span>     <span class="k">if</span> <span class="o">[</span><span class="n">side1</span><span class="p">,</span> <span class="n">side2</span><span class="o">].</span><span class="n">none?</span> <span class="p">{</span> <span class="o">|</span><span class="n">side</span><span class="o">|</span> <span class="n">side</span> <span class="o">==</span> <span class="n">side3</span><span class="p">}</span>
+</span><span class='line'>  <span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Can we talk about <code>triangle.inject(-test_side,:+)</code>? WTF and FTW. It&rsquo;s testing if one side of the triangle is greater than the sum of the other two sides by seeding the inject method with a negative value for the side that it is testing against and then adding up the lengths of all sides on top of that. It&rsquo;s not particularly easy to follow, but it&rsquo;s fun to read and definitely gives you a sense of the personality behind it. The man behind the madness admits to being seduced by the allure of clever code, something that all ruby nubies must be susceptible to, and writes more about the inherent danger of choosing impressive code over expressive code <a href="http://jbarrieault.github.io/blog/2014/06/19/expressive/">here</a>.</p>
+
+<p>Now back to SQL&hellip; :(</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Vanessa Dean</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-19T22:14:51-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2014</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://vanessadean.github.io/blog/2014/06/19/sql-sux-and-ruby-rulz/" data-via="" data-counturl="http://vanessadean.github.io/blog/2014/06/19/sql-sux-and-ruby-rulz/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/06/11/teaching-a-new-dog-old-tricks/" title="Previous Post: Teaching a New Dog Old Tricks">&laquo; Teaching a New Dog Old Tricks</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/06/19/sql-sux-and-ruby-rulz/">SQL Sux and Ruby Rulz</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/11/teaching-a-new-dog-old-tricks/">Teaching a New Dog Old Tricks</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/07/what-i-learned-in-my-first-week-at-the-flatiron-school/">What I Learned in My First Week at the Flatiron School</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/04/my-first-post/">My First Post</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Vanessa Dean -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
