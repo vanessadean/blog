@@ -4,7 +4,7 @@
   <title><![CDATA[Category: School | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-21T12:08:44-04:00</updated>
+  <updated>2014-06-25T23:15:31-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,423 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[YAML Time]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/25/yaml-time/"/>
+    <updated>2014-06-25T13:56:38-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/25/yaml-time</id>
+    <content type="html"><![CDATA[<h2>What is YAML?</h2>
+
+<p>To quote the <a href="http://www.yaml.org/">official YAML site</a>:</p>
+
+<blockquote><p>YAML is a human friendly data serialization standard for all programming languages.</p></blockquote>
+
+<h2>What does this mean?</h2>
+
+<p>YAML helps humans store and transmit data via text, and to convey a specific structure and organization of that data, in a way that both humans and machines can understand. The <a href="http://www.yaml.org/YAML_for_ruby.html">YAML Cookbook for Ruby</a> is a great resource for learning ruby/YAML syntax and here are a few simple examples from the site to illustrate how YAML translates to ruby and vice versa:</p>
+
+<ul>
+<li>Ruby array
+<code>ruby
+['apple', 'banana', 'carrot']
+</code></li>
+<li>Yaml array
+```</li>
+<li>apple</li>
+<li>banana</li>
+<li><p>carrot
+```</p></li>
+<li><p>Ruby hash
+<code>ruby
+{ 'foo' =&gt; 'whatever', 'bar' =&gt; 'stuff' }
+</code></p></li>
+<li><p>Yaml hash
+<code>
+foo: whatever
+bar: stuff
+</code></p></li>
+<li><p>Ruby array/hash combo
+<code>ruby
+{ 'foo' =&gt; 'whatever', 'bar' =&gt; [ 'uno', 'dos' ] }
+</code></p></li>
+<li><p>Yaml array/hash combo
+```
+foo: whatever
+bar:</p></li>
+<li>uno</li>
+<li>dos
+```
+
+<h2>Ok, I get it. But how do I use YAML?</h2></li>
+</ul>
+
+
+<p>Here are instructions straight from the <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/yaml/rdoc/YAML.html">Ruby documentation</a>:</p>
+
+<p>```
+require &lsquo;yaml&rsquo; # STEP ONE, REQUIRE YAML!</p>
+
+<h1>Parse a YAML string</h1>
+
+<p>YAML.load(&ldquo;&mdash;&ndash; foo&rdquo;) #=> &ldquo;foo&rdquo;</p>
+
+<h1>Emit some YAML</h1>
+
+<p>YAML.dump(&ldquo;foo&rdquo;)     # => &ldquo;&mdash;&ndash; foo\n&hellip;\n&rdquo;
+{ :a => &lsquo;b&rsquo;}.to_yaml  # => &ldquo;&mdash;&ndash;\n:a: b\n&rdquo;
+```</p>
+
+<p>I did not find this particularly helpful. I wanted to load a .yml file (not parse a random YAML string), but I also made things harder on myself because I refused to believe that it was that simple. YAML is just plain ol' text that tells you everything you need to know about the data and its structure. Once I tracked down a method for parsing a .yml file (thanks <a href="http://stackoverflow.com/questions/3877004/how-do-i-parse-a-yaml-file">StackOverflow</a>!) and did a little something like this</p>
+
+<p><code>ruby
+require 'yaml'
+thing = YAML.load_file('some.yml')
+puts thing.inspect
+</code></p>
+
+<p>to translate my YAML to ruby, the next steps for using my data became clearer. Here are some details to help illustrate.</p>
+
+<p>I was working on a lab that consisted of building a movie database. A seed_data.yml file with the following data was provided:</p>
+
+<h2>```</h2>
+
+<p>movies:
+&ndash; !ruby/object:Movie
+  attributes:</p>
+
+<pre><code>title: Wargames
+release_date: 1983
+director: John Badham
+lead: Matthew Broderick
+in_theaters: false
+</code></pre>
+
+<ul>
+<li>!ruby/object:Movie
+attributes:
+  title: The Sting
+  release_date: 1973
+  director: George Roy Hill
+  lead: Paul Newman
+  in_theaters: false
+  id:</li>
+<li>!ruby/object:Movie
+attributes:
+  title: Nebraska
+  release_date: 2013
+  director: Alexander Payne
+  lead: Bruce Dern
+  in_theaters: true
+```</li>
+</ul>
+
+
+<p>This example is a little more complex than the previous ones provided and shows the true power of YAML. The <code>!ruby/object:Movie</code> lines in the YAML file are delimiting ruby objects with the signified attributes. Parsing this data using <code>YAML.load_file()</code> produces this movies hash in ruby:</p>
+
+<p><code>
+{"movies"=&gt;
+  [#&lt;Movie id: nil, title: "Wargames", release_date: 1983, director: "John Badham", lead: "Matthew Broderick", in_theaters: false&gt;,
+   #&lt;Movie id: nil, title: "The Sting", release_date: 1973, director: "George Roy Hill", lead: "Paul Newman", in_theaters: false&gt;,
+   #&lt;Movie id: nil, title: "Nebraska", release_date: 2013, director: "Alexander Payne", lead: "Bruce Dern", in_theaters: true&gt;,
+   #&lt;Movie id: nil, title: "Muppets Most Wanted", release_date: 2014, director: "James Bobin", lead: "Tom Hiddleston", in_theaters: true&gt;,
+   #&lt;Movie id: nil, title: "Zero Dark Thirty", release_date: 2012, director: "Kathryn Bigelow", lead: "Jessica Chastain", in_theaters: false&gt;]}
+</code></p>
+
+<p>Which means that the text in the .yml file can be turned into ruby objects and added to my movies database with four lines of code:</p>
+
+<p><code>ruby
+YAML.load_file('seed_data.yml')['movies'].each do |movie|
+  Movie.create(movie.attributes)
+  movie.save
+end
+</code></p>
+
+<p>BOOM!</p>
+
+<p><img src="../images/mc_hammer_giphy_2.gif" title="YAML Time" alt="alt text" />
+(obligatory gif)</p>
+
+<p><strong>Additional YAML resources:</strong></p>
+
+<ul>
+<li><a href="http://juixe.com/techknow/index.php/2009/10/08/jamming-with-ruby-yaml/">Using YAML in Ruby</a></li>
+<li><a href="http://www.skorks.com/2010/04/serializing-and-deserializing-objects-with-ruby/">Serializing (And Deserializing) Objects With Ruby</a> (includes a discussion of JSON vs. YAML)</li>
+<li><a href="http://yaml.org/spec/1.2/spec.html#id2759572">YAML&rsquo;s Relation to JSON</a></li>
+<li><a href="http://www.cowtowncoder.com/blog/archives/2012/04/entry_473.html">What me like YAML? (Confessions of a JSON advocate)</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQL Sux and Ruby Rulz]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/19/sql-sux-and-ruby-rulz/"/>
+    <updated>2014-06-19T22:14:51-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/19/sql-sux-and-ruby-rulz</id>
+    <content type="html"><![CDATA[<p>This week at the Flatiron School we started discussing databases and models and studying SQL. This is a big step towards the holy grail of building fully functional web applications, but it’s not much fun. Staring at lifeless SQL commands makes it painfully clear why learning a flexible and expressive language like ruby is so much more fun. When you write in ruby you have plenty of opportunities to share your own style and to provide a window into the thought process behind your solution. In that spirit, I’d like to share a few examples from a simple lab we recently completed.</p>
+
+<p>The purpose of this lab was to confirm the identity of a triangle given the length of its sides &ndash; equilateral (all sides of equal length), isosceles (two sides equal) or scalene (no sides equal).</p>
+
+<p>Here is my code:
+```ruby
+  def kind</p>
+
+<pre><code>if !valid_triangle? # checks to see if valid values have been submitted for the length of each side
+  raise TriangleError # raises an error if invalid 
+else
+  if side1 == side2 # checks for equality for first two sides 
+    if side2 == side3 # checks if the third side is also equal
+      :equilateral
+    else
+      :isosceles
+    end
+  elsif side2 == side3 || side1 == side3 #otherwise checks whether sides two and three are equal
+    :isosceles
+  else
+    :scalene
+  end
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  def valid_triangle?</p>
+
+<pre><code>return false if (side1 + side2) &lt;= side3 || (side1 + side3) &lt;= side2 || (side2 + side3) &lt;= side1 
+# it is not possible to have a triangle with one side longer than the sum of the other two sides
+
+[side1, side2, side3].each do |side| # it is not possible for the length of a side to be zero or a negative number
+  return false if side &lt;= 0 
+end 
+</code></pre>
+
+<p>  end
+```
+This is begging to be refactored, especially the awkward use of !valid_triangle?, but it&rsquo;s a representative, unfiltered example of the meandering thought process that I take when solving a problem.</p>
+
+<p>Now let&rsquo;s take a look at a more polished solution from <a href="https://github.com/randallreedjr">randallreedjr</a>:
+```ruby
+  def kind</p>
+
+<pre><code>if valid?
+  if sides[0] == sides[1] &amp;&amp; sides[0]== sides[2]
+    return :equilateral
+  elsif sides[0] == sides[1] || sides[1] == sides[2] || sides[0] == sides[2]
+    return :isosceles
+  else
+    return :scalene
+  end
+else
+  raise TriangleError
+end
+</code></pre>
+
+<p>  end</p>
+
+<p>  private
+   def valid?</p>
+
+<pre><code> sides[0] + sides[1] &gt; sides[2] &amp;&amp; sides[1] + sides[2] &gt; sides[0] &amp;&amp; sides[0] + sides[2] &gt; sides[1]
+</code></pre>
+
+<p>   end
+```
+Here are my favorite things about this code:</p>
+
+<ul>
+<li>it does economical testing for each triangle scenario and for the validity test</li>
+<li>it is easy to follow</li>
+<li>the validity test is in a private method so the user can&rsquo;t hack his way into testing an impossible triangle</li>
+</ul>
+
+
+<p>It is built for business.</p>
+
+<p>For our final example, let&rsquo;s take a look at a solution from <a href="https://github.com/jbarrieault">jbarrieault</a> that is a bit quirkier:
+```ruby
+  def triangle?</p>
+
+<pre><code>triangle = [side1, side2, side3]
+
+return false if triangle.any? do |side|
+  side == nil || side == 0 || side != side.abs
+end
+
+triangle.each do |test_side|
+  return false if test_side &gt;= triangle.inject(-test_side,:+)
+end
+
+return true
+</code></pre>
+
+<p>  end</p>
+
+<p>  def kind</p>
+
+<pre><code>raise TriangleError unless triangle?
+return :equilateral if [side1, side2].all? { |side| side == side3 }
+return :isosceles   if side1 == side2 || side2 == side3 || side1 == side3 
+return :scalene     if [side1, side2].none? { |side| side == side3}  
+</code></pre>
+
+<p>  end
+<code>``
+Can we talk about</code>triangle.inject(-test_side,:+)`? WTF and FTW. It&rsquo;s testing if one side of the triangle is greater than the sum of the other two sides by seeding the inject method with a negative value for the side that it is testing against and then adding up the lengths of all sides on top of that. It&rsquo;s not particularly easy to follow, but it&rsquo;s fun to read and definitely gives you a sense of the personality behind it. The man behind the madness admits to being seduced by the allure of clever code, something that all ruby nubies must be susceptible to, and writes more about the inherent danger of choosing impressive code over expressive code <a href="http://jbarrieault.github.io/blog/2014/06/19/expressive/">here</a>.</p>
+
+<p>Now back to SQL&hellip; :(</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Teaching a New Dog Old Tricks]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks/"/>
+    <updated>2014-06-11T18:22:13-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks</id>
+    <content type="html"><![CDATA[<p>This week at Flatiron School we started lectures on object orientation and during our discussion on <code>class</code> there was one example that really helped me understand some basic ruby concepts. Here is my own take on that example:
+```ruby
+class Dog
+  attr_accessor   :name, :breed
+  @@all_dogs = []</p>
+
+<p>  def initialize(name, breed=&ldquo;mutt&rdquo;)</p>
+
+<pre><code>@name = name
+@breed = breed
+@@all_dogs &lt;&lt; self
+</code></pre>
+
+<p>  end</p>
+
+<p>  def bark</p>
+
+<pre><code>puts "Woof! I'm #{self.name}."
+</code></pre>
+
+<p>  end</p>
+
+<p>  def howl</p>
+
+<pre><code>puts "#{self.name}: aRuuuuuuuuuubeee! Doo be doooo!"
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.all</p>
+
+<pre><code>@@all_dogs     
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.find_dogs_by_breed(breed)</p>
+
+<pre><code>Dog.all.select { |dog| dog.breed == breed }
+</code></pre>
+
+<p>  end
+end
+<code>``
+Let’s start at the top with attr_accessor. This is a familiar line of code and I know it is necessary for reading and writing to the variable</code>:name`, but I never thought about how it works. It wasn&rsquo;t until the moment that we discussed it in class that I understood that the code behind attr_accessor is this:</p>
+
+<p>```ruby
+def name=(name)
+  @name = name
+end</p>
+
+<p>def name
+  name
+end
+<code>
+This was especially helpful in clearing up my confusion about the equal sign I occasionally see in method names. This equal sign makes assigning a name look something like:
+</code>ruby
+fido.name = “Fido”
+<code>``
+which is a great example of how ruby’s flexible syntax makes it such a friendly language. The parenthesis can be dropped and a space added in front of the equal sign to mirror an algebraic assignment, instead of the equally valid but less familiar</code>fido.name=(“Fido”)`.</p>
+
+<p>We also discussed class methods and the concept of self in lecture. I was pretty clear on how instance methods work (like using fido.bark to make an instance of the Dog class bark), but class methods were a little hazier. In one our Flatiron School pre-work exercises there was a directive to “Create an array constant SCHOOLS that stores all instances of your School class.” I was like whaaah? But our Dog class has a nice example of how to approach that problem (explanation in the comments):</p>
+
+<p>```ruby
+  @@all_dogs = []  #a class variable is created to hold all instances of the Dog class in an array</p>
+
+<p>  def initialize(name, breed=“mutt”)</p>
+
+<pre><code>@name = name
+@breed = breed
+@@all_dogs &lt;&lt; self  #each time a new dog is initialized it is added to the all_dogs array
+</code></pre>
+
+<p>  end</p>
+
+<p>  def self.all  #a class method &lsquo;all&rsquo; is created to access the all_dogs array</p>
+
+<pre><code>@@all_dogs      
+</code></pre>
+
+<p>  end
+<code>
+It is important to note the `self` in the method signature of our `all` method. Self in this case is the Dog class. This method can be called on the class itself rather than an instance of the class. It is different from the self found here within the body of the instance method `bark`:
+</code>ruby
+  def bark</p>
+
+<pre><code>puts "Woof! I'm #{self.name}."
+</code></pre>
+
+<p>  end
+<code>``
+In this</code>bark` instance method, self is referring to an instance of the class (e.g. Fido) and not the Dog class.</p>
+
+<p>An instance method is useful if you want to perform an action on one particular instance of a class, but sometimes you want to call a method on the entire class. Here is an example: let&rsquo;s adopt some dogs. We can simulate this by creating several new instances of the Dog class:
+<code>ruby
+fido = Dog.new("Fido")  #no breed is provided because Fido is a mutt and that is the default value for breed
+snoopy = Dog.new("Snoopy", "Beagle")
+jacques = Dog.new("Jacques", "French Bulldog")
+chanel = Dog.new("Chanel", "French Bulldog")
+fifi = Dog.new("Fifi", "Poodle")
+</code>
+Now let&rsquo;s say that we want to order some monogrammed sweaters for our French Bulldogs. We can use our handy class method called <code>self.find_dogs_by_breed</code> to print out a list of our Frenchies' names like so:
+```ruby
+Dog.find_dogs_by_breed(&ldquo;French Bulldog&rdquo;).each do |dog|
+  puts &ldquo;#{dog.name}&rdquo;
+end</p>
+
+<h1>=> Jacques</h1>
+
+<h1>=> Chanel</h1>
+
+<p><code>
+Or say that we decide to teach our dogs a new party trick and we want all of them to howl in unison. We can use our class method `self.all` in conjunction with our instance method
+</code>ruby
+  def howl</p>
+
+<pre><code>puts "#{self.name}: aRuuuuuuuuuubeee! Doo be doooo!"
+</code></pre>
+
+<p>  end
+<code>
+to make all the instances of our Dog howl in symphony like so:
+</code>ruby
+Dog.all.each do |dog|
+  dog.howl
+end</p>
+
+<h1>=> Fido: aaaRuuuuuuubeee! Doo be doooo!</h1>
+
+<h1>=> Snoopy: aaaRuuuuuuubeee! Doo be doooo!</h1>
+
+<h1>=> Jacques: aaaRuuuuuuubeee! Doo be doooo!</h1>
+
+<h1>=> Chanel: aaaRuuuuuuubeee! Doo be doooo!</h1>
+
+<h1>=> Fifi: aaaRuuuuuuubeee! Doo be doooo!</h1>
+
+<p><code>``
+Looking at the self in the method signature for the class method</code>self.all<code>and the self within the body of the instance method</code>howl` and thinking about what each self is pointing to and why is key to understanding the notion of self in ruby.</p>
+
+<p>Oh, <del>love</del> <strong>ruby</strong> will make a dog howl in rhyme.
+&ndash; Francis Beaumont</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What I Learned in My First Week at the Flatiron School]]></title>

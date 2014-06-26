@@ -4,7 +4,7 @@
   <title><![CDATA[Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-21T12:08:44-04:00</updated>
+  <updated>2014-06-25T23:15:31-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,227 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[YAML Time]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/06/25/yaml-time/"/>
+    <updated>2014-06-25T13:56:38-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/06/25/yaml-time</id>
+    <content type="html"><![CDATA[<h2>What is YAML?</h2>
+
+<p>To quote the <a href="http://www.yaml.org/">official YAML site</a>:</p>
+
+<blockquote><p>YAML is a human friendly data serialization standard for all programming languages.</p></blockquote>
+
+<h2>What does this mean?</h2>
+
+<p>YAML helps humans store and transmit data via text, and to convey a specific structure and organization of that data, in a way that both humans and machines can understand. The <a href="http://www.yaml.org/YAML_for_ruby.html">YAML Cookbook for Ruby</a> is a great resource for learning ruby/YAML syntax and here are a few simple examples from the site to illustrate how YAML translates to ruby and vice versa:</p>
+
+<ul>
+<li>Ruby array</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;carrot&#39;</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Yaml array</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">-</span> <span class="n">apple</span>
+</span><span class='line'><span class="o">-</span> <span class="n">banana</span>
+</span><span class='line'><span class="o">-</span> <span class="n">carrot</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Ruby hash</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;whatever&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;stuff&#39;</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Yaml hash</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">foo</span><span class="p">:</span> <span class="n">whatever</span>
+</span><span class='line'><span class="ss">bar</span><span class="p">:</span> <span class="n">stuff</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Ruby array/hash combo</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span> <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;whatever&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="o">[</span> <span class="s1">&#39;uno&#39;</span><span class="p">,</span> <span class="s1">&#39;dos&#39;</span> <span class="o">]</span> <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Yaml array/hash combo</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">foo</span><span class="p">:</span> <span class="n">whatever</span>
+</span><span class='line'><span class="ss">bar</span><span class="p">:</span>
+</span><span class='line'><span class="o">-</span> <span class="n">uno</span>
+</span><span class='line'><span class="o">-</span> <span class="n">dos</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Ok, I get it. But how do I use YAML?</h2>
+
+<p>Here are instructions straight from the <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/yaml/rdoc/YAML.html">Ruby documentation</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span> <span class="c1"># STEP ONE, REQUIRE YAML!</span>
+</span><span class='line'><span class="c1"># Parse a YAML string</span>
+</span><span class='line'><span class="no">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;--- foo&quot;</span><span class="p">)</span> <span class="c1">#=&gt; &quot;foo&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Emit some YAML</span>
+</span><span class='line'><span class="no">YAML</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>     <span class="c1"># =&gt; &quot;--- foo\n...\n&quot;</span>
+</span><span class='line'><span class="p">{</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="s1">&#39;b&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">to_yaml</span>  <span class="c1"># =&gt; &quot;---\n:a: b\n&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I did not find this particularly helpful. I wanted to load a .yml file (not parse a random YAML string), but I also made things harder on myself because I refused to believe that it was that simple. YAML is just plain ol&#8217; text that tells you everything you need to know about the data and its structure. Once I tracked down a method for parsing a .yml file (thanks <a href="http://stackoverflow.com/questions/3877004/how-do-i-parse-a-yaml-file">StackOverflow</a>!) and did a little something like this</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
+</span><span class='line'><span class="n">thing</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s1">&#39;some.yml&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">puts</span> <span class="n">thing</span><span class="o">.</span><span class="n">inspect</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>to translate my YAML to ruby, the next steps for using my data became clearer. Here are some details to help illustrate.</p>
+
+<p>I was working on a lab that consisted of building a movie database. A seed_data.yml file with the following data was provided:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">---</span>
+</span><span class='line'><span class="ss">movies</span><span class="p">:</span>
+</span><span class='line'><span class="o">-</span> <span class="o">!</span><span class="n">ruby</span><span class="o">/</span><span class="ss">object</span><span class="p">:</span><span class="no">Movie</span>
+</span><span class='line'>  <span class="ss">attributes</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">title</span><span class="p">:</span> <span class="no">Wargames</span>
+</span><span class='line'>    <span class="n">release_date</span><span class="p">:</span> <span class="mi">1983</span>
+</span><span class='line'>    <span class="ss">director</span><span class="p">:</span> <span class="no">John</span> <span class="no">Badham</span>
+</span><span class='line'>    <span class="ss">lead</span><span class="p">:</span> <span class="no">Matthew</span> <span class="no">Broderick</span>
+</span><span class='line'>    <span class="n">in_theaters</span><span class="p">:</span> <span class="kp">false</span>
+</span><span class='line'><span class="o">-</span> <span class="o">!</span><span class="n">ruby</span><span class="o">/</span><span class="ss">object</span><span class="p">:</span><span class="no">Movie</span>
+</span><span class='line'>  <span class="ss">attributes</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">title</span><span class="p">:</span> <span class="no">The</span> <span class="no">Sting</span>
+</span><span class='line'>    <span class="n">release_date</span><span class="p">:</span> <span class="mi">1973</span>
+</span><span class='line'>    <span class="ss">director</span><span class="p">:</span> <span class="no">George</span> <span class="no">Roy</span> <span class="no">Hill</span>
+</span><span class='line'>    <span class="ss">lead</span><span class="p">:</span> <span class="no">Paul</span> <span class="no">Newman</span>
+</span><span class='line'>    <span class="n">in_theaters</span><span class="p">:</span> <span class="kp">false</span>
+</span><span class='line'>    <span class="nb">id</span><span class="p">:</span>
+</span><span class='line'><span class="o">-</span> <span class="o">!</span><span class="n">ruby</span><span class="o">/</span><span class="ss">object</span><span class="p">:</span><span class="no">Movie</span>
+</span><span class='line'>  <span class="ss">attributes</span><span class="p">:</span>
+</span><span class='line'>    <span class="ss">title</span><span class="p">:</span> <span class="no">Nebraska</span>
+</span><span class='line'>    <span class="n">release_date</span><span class="p">:</span> <span class="mi">2013</span>
+</span><span class='line'>    <span class="ss">director</span><span class="p">:</span> <span class="no">Alexander</span> <span class="no">Payne</span>
+</span><span class='line'>    <span class="ss">lead</span><span class="p">:</span> <span class="no">Bruce</span> <span class="no">Dern</span>
+</span><span class='line'>    <span class="n">in_theaters</span><span class="p">:</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This example is a little more complex than the previous ones provided and shows the true power of YAML. The <code>!ruby/object:Movie</code> lines in the YAML file are delimiting ruby objects with the signified attributes. Parsing this data using <code>YAML.load_file()</code> produces this movies hash in ruby:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="s2">&quot;movies&quot;</span><span class="o">=&gt;</span>
+</span><span class='line'>  <span class="o">[</span><span class="c1">#&lt;Movie id: nil, title: &quot;Wargames&quot;, release_date: 1983, director: &quot;John Badham&quot;, lead: &quot;Matthew Broderick&quot;, in_theaters: false&gt;,</span>
+</span><span class='line'>   <span class="c1">#&lt;Movie id: nil, title: &quot;The Sting&quot;, release_date: 1973, director: &quot;George Roy Hill&quot;, lead: &quot;Paul Newman&quot;, in_theaters: false&gt;,</span>
+</span><span class='line'>   <span class="c1">#&lt;Movie id: nil, title: &quot;Nebraska&quot;, release_date: 2013, director: &quot;Alexander Payne&quot;, lead: &quot;Bruce Dern&quot;, in_theaters: true&gt;,</span>
+</span><span class='line'>   <span class="c1">#&lt;Movie id: nil, title: &quot;Muppets Most Wanted&quot;, release_date: 2014, director: &quot;James Bobin&quot;, lead: &quot;Tom Hiddleston&quot;, in_theaters: true&gt;,</span>
+</span><span class='line'>   <span class="c1">#&lt;Movie id: nil, title: &quot;Zero Dark Thirty&quot;, release_date: 2012, director: &quot;Kathryn Bigelow&quot;, lead: &quot;Jessica Chastain&quot;, in_theaters: false&gt;]}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Which means that the text in the .yml file can be turned into ruby objects and added to my movies database with four lines of code:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="s1">&#39;seed_data.yml&#39;</span><span class="p">)</span><span class="o">[</span><span class="s1">&#39;movies&#39;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">movie</span><span class="o">|</span>
+</span><span class='line'>  <span class="no">Movie</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">movie</span><span class="o">.</span><span class="n">attributes</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">movie</span><span class="o">.</span><span class="n">save</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>BOOM!</p>
+
+<p><img src="../images/mc_hammer_giphy_2.gif" title="YAML Time" alt="alt text" />
+(obligatory gif)</p>
+
+<p><strong>Additional YAML resources:</strong></p>
+
+<ul>
+<li><a href="http://juixe.com/techknow/index.php/2009/10/08/jamming-with-ruby-yaml/">Using YAML in Ruby</a></li>
+<li><a href="http://www.skorks.com/2010/04/serializing-and-deserializing-objects-with-ruby/">Serializing (And Deserializing) Objects With Ruby</a> (includes a discussion of JSON vs. YAML)</li>
+<li><a href="http://yaml.org/spec/1.2/spec.html#id2759572">YAML&rsquo;s Relation to JSON</a></li>
+<li><a href="http://www.cowtowncoder.com/blog/archives/2012/04/entry_473.html">What me like YAML? (Confessions of a JSON advocate)</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SQL Sux and Ruby Rulz]]></title>
