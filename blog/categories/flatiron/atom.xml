@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-06-25T23:15:31-04:00</updated>
+  <updated>2014-07-10T23:41:57-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Doing Well and Doing Good]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/07/10/doing-good/"/>
+    <updated>2014-07-10T18:30:38-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/07/10/doing-good</id>
+    <content type="html"><![CDATA[<p>We&rsquo;re at the halfway point at the Flatiron School and it&rsquo;s time to start thinking about jobs. I was curious about non-profit and social enterprise companies in the tech industry and here is a roundup of a few that I found during my research:</p>
+
+<p><a href="http://www.donorschoose.org/">Donor&rsquo;s Choose</a>
+Online charity organization that helps public school teachers raise funds for class projects. Based in New York.</p>
+
+<p><a href="http://benetech.org/">Benetech</a>
+A non-profit dedicated to developing technology focused on social benefits. Based in San Francisco.</p>
+
+<p><a href="http://www.idealist.org/">idealist</a>
+Networking site for non-profits. Based in New York.</p>
+
+<p><a href="http://www.networkforgood.org">Network for Good</a>
+Provides online fundraising tools to help non-profits connect with donors. Based in DC.</p>
+
+<p><a href="www.catchafire.org">Catchafire</a>
+Matches professionals who
+want to volunteer their skills with
+non-profits who need their help. Based in New York.</p>
+
+<p>No matter where I end up working, I definitely plan to give back through volunteering. Here are a couple of organizations in New York that I&rsquo;d like to investigate a little further:</p>
+
+<p><a href="http://www.tealsk12.org/">TEALS</a>
+Connects technology professionals with high school teachers to provide computer science classes in public schools.</p>
+
+<p><a href="http://nycgenerationtech.com/">NYC Generation Tech</a>
+An NYC non-profit dedicated to teaching young people technology and entrepreneurship skills.</p>
+
+<p>I&rsquo;m sure there are a ton of other organizations out there and I&rsquo;m going to keep doing research.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[YAML Time]]></title>
@@ -487,15 +523,6 @@ end</p>
 
 <p>afternoon_snack_attack { |snack| puts &ldquo;eating #{snack} nom nom nom&rdquo;  }
 ```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My First Post]]></title>
-    <link href="http://vanessadean.github.io/blog/2014/06/04/my-first-post/"/>
-    <updated>2014-06-04T10:45:51-04:00</updated>
-    <id>http://vanessadean.github.io/blog/2014/06/04/my-first-post</id>
-    <content type="html"><![CDATA[<p>Helloooooooooooo, world!</p>
 ]]></content>
   </entry>
   
