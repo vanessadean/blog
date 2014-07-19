@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-07-10T23:41:57-04:00</updated>
+  <updated>2014-07-19T14:00:34-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -29,8 +29,11 @@ A non-profit dedicated to developing technology focused on social benefits. Base
 <p><a href="http://www.idealist.org/">idealist</a>
 Networking site for non-profits. Based in New York.</p>
 
-<p><a href="http://www.networkforgood.org">Network for Good</a>
+<p><a href="http://www1.networkforgood.org/">Network for Good</a>
 Provides online fundraising tools to help non-profits connect with donors. Based in DC.</p>
+
+<p><a href="https://www.crowdrise.com">CrowdRise</a>
+An online fundraising site for individuals who want to raise funds for the causes that they care about.</p>
 
 <p><a href="www.catchafire.org">Catchafire</a>
 Matches professionals who
@@ -359,7 +362,7 @@ class Dog
 
 <p>  def self.find_dogs_by_breed(breed)</p>
 
-<pre><code>Dog.all.select { |dog| dog.breed == breed }
+<pre><code>self.all.select { |dog| dog.breed == breed }
 </code></pre>
 
 <p>  end
