@@ -4,7 +4,7 @@
   <title><![CDATA[Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-07-19T14:13:38-04:00</updated>
+  <updated>2014-07-19T15:03:10-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Help From My (Flatiron) Friends]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/07/19/a-little-help-from-my-flatiron-friends/"/>
+    <updated>2014-07-19T14:16:00-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/07/19/a-little-help-from-my-flatiron-friends</id>
+    <content type="html"><![CDATA[<p>Our seventh week at Flatiron School just flew by and we&rsquo;ve started studying JavaScript (on top of Rails). So much information is getting crammed into my brain that I&rsquo;m a little worried about losing track of the basics. I know that there are a ton of helpful resources out there, but some of my favorites are the blog posts that my fellow students have written. We are all roughly in the same place as noobies so their perspectives and insights are especially helpful. I&rsquo;ve been keeping track of my favorite posts in my bookmarks folder but figured it would be a lot easier to keep a few compiled here. Without further ado&hellip;</p>
+
+<p><a href="http://ccmeyers.github.io/blog/2014/06/25/iterators-schmiterators/">Iterators Schmiterators</a>
+by Catherine Myers</p>
+
+<p><a href="http://callahanchris.github.io/blog/2014/07/17/five-useful-ruby-array-methods/">Five Useful Ruby Array Methods</a>
+by Chris Callahan</p>
+
+<p><a href="http://pcrglennon.github.io/blog/2014/06/10/rubys-hash-dot-new-and-%7B%7D/">Ruby&rsquo;s Hash.new and {}</a>
+by Peter Glennon</p>
+
+<p><a href="http://kylefdoherty.github.io/blog/2014/02/17/ruby-notes-working-with-files/">Ruby Notes &ndash; Working With Files</a>
+by Kyle Doherty</p>
+
+<p><a href="http://jbarrieault.github.io/blog/2014/07/02/error-handling-in-ruby/">Error Handling in Ruby</a>
+by Jacob Barrieault</p>
+
+<p><a href="http://www.korenlc.com/sql-cheat-sheet/">SQL Cheat Sheet</a>
+by Koren Leslie Cohen</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Doing Well and Doing Good]]></title>

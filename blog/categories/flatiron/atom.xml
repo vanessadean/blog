@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Flatiron | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-07-19T14:13:38-04:00</updated>
+  <updated>2014-07-19T15:03:10-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[A Little Help From My (Flatiron) Friends]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/07/19/a-little-help-from-my-flatiron-friends/"/>
+    <updated>2014-07-19T14:16:00-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/07/19/a-little-help-from-my-flatiron-friends</id>
+    <content type="html"><![CDATA[<p>Our seventh week at Flatiron School just flew by and we&rsquo;ve started studying JavaScript (on top of Rails). So much information is getting crammed into my brain that I&rsquo;m a little worried about losing track of the basics. I know that there are a ton of helpful resources out there, but some of my favorites are the blog posts that my fellow students have written. We are all roughly in the same place as noobies so their perspectives and insights are especially helpful. I&rsquo;ve been keeping track of my favorite posts in my bookmarks folder but figured it would be a lot easier to keep a few compiled here. Without further ado&hellip;</p>
+
+<p><a href="http://ccmeyers.github.io/blog/2014/06/25/iterators-schmiterators/">Iterators Schmiterators</a>
+by Catherine Myers</p>
+
+<p><a href="http://callahanchris.github.io/blog/2014/07/17/five-useful-ruby-array-methods/">Five Useful Ruby Array Methods</a>
+by Chris Callahan</p>
+
+<p><a href="http://pcrglennon.github.io/blog/2014/06/10/rubys-hash-dot-new-and-%7B%7D/">Ruby&rsquo;s Hash.new and {}</a>
+by Peter Glennon</p>
+
+<p><a href="http://kylefdoherty.github.io/blog/2014/02/17/ruby-notes-working-with-files/">Ruby Notes &ndash; Working With Files</a>
+by Kyle Doherty</p>
+
+<p><a href="http://jbarrieault.github.io/blog/2014/07/02/error-handling-in-ruby/">Error Handling in Ruby</a>
+by Jacob Barrieault</p>
+
+<p><a href="http://www.korenlc.com/sql-cheat-sheet/">SQL Cheat Sheet</a>
+by Koren Leslie Cohen</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Doing Well and Doing Good]]></title>
@@ -466,66 +493,6 @@ Looking at the self in the method signature for the class method</code>self.all<
 
 <p>Oh, <del>love</del> <strong>ruby</strong> will make a dog howl in rhyme.
 &ndash; Francis Beaumont</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What I Learned in My First Week at the Flatiron School]]></title>
-    <link href="http://vanessadean.github.io/blog/2014/06/07/what-i-learned-in-my-first-week-at-the-flatiron-school/"/>
-    <updated>2014-06-07T19:45:07-04:00</updated>
-    <id>http://vanessadean.github.io/blog/2014/06/07/what-i-learned-in-my-first-week-at-the-flatiron-school</id>
-    <content type="html"><![CDATA[<h2>Everything is an object in Ruby</h2>
-
-<p>Even methods act like objects. We iterated over a method in a lab this week, e.g. <code>assign_rooms(speakers).each</code> and I had never seen that before. A tiny explosion happened in my brain. When the dust settled I realized that I was actually just iterating over the return value, an array, and that totally makes sense.</p>
-
-<h2>Error messages are there to help</h2>
-
-<p>Read all of the words. Pay attention to what they are saying. Your computer is trying to tell you something.</p>
-
-<p><img src="../images/zoolander_in_the_computer.jpg" title="Zoolander - it's in the computer" alt="alt text" /></p>
-
-<h2>Specs are for following</h2>
-
-<p>I like to do things myyyyyy waaaaaaay, but nothing is created in a vacuum. I need to learn how to follow directions and build the best possible program following the set specifications.</p>
-
-<h2>Asking questions is awesome</h2>
-
-<p>I think I understand everything and most of the time I understand nothing. To fix this I&rsquo;ve become that annoying guy at the table constantly asking questions. That&rsquo;s okay though because&hellip;</p>
-
-<h2>We are here to help each other</h2>
-
-<p>So many people have generously and patiently helped me this week. Paying it forward is the right thing to do and it&rsquo;s the best way to figure out whether or not you actually understand something.</p>
-
-<h2>Cold brew coffee is key</h2>
-
-<ol>
-<li>Let French press steep in the fridge overnight.</li>
-<li>Pour coffee straight into mouth the next morning.</li>
-</ol>
-
-
-<h2>It&rsquo;s time to embrace snacking</h2>
-
-<p>```ruby
-def afternoon_snack_attack
-  if block_given? #snack_given?</p>
-
-<pre><code>yield("M&amp;Ms")
-yield("Cheezits")
-yield("Swedish Fish")
-":] :) :D"
-</code></pre>
-
-<p>  else</p>
-
-<pre><code>"(╯°□°)╯︵ ┻━┻"
-</code></pre>
-
-<p>  end
-end</p>
-
-<p>afternoon_snack_attack { |snack| puts &ldquo;eating #{snack} nom nom nom&rdquo;  }
-```</p>
 ]]></content>
   </entry>
   
