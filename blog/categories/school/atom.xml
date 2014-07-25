@@ -4,7 +4,7 @@
   <title><![CDATA[Category: School | Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-07-19T15:03:10-04:00</updated>
+  <updated>2014-07-24T22:10:16-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[I Made a Really Important App]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app/"/>
+    <updated>2014-07-24T21:34:55-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app</id>
+    <content type="html"><![CDATA[<p>The last couple of weeks studying Rails and JavaScript have been a little rough. I&rsquo;ve been feeling really frustrated and having trouble staying motivated. So this week I decided to drop back into Sinatra to build a little app that would make me feel better.</p>
+
+<div style="margin: 0, auto;"><a href="http://buck-up.herokuapp.com/">Here it is.</a></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[A Little Help From My (Flatiron) Friends]]></title>
@@ -343,156 +355,6 @@ return :scalene     if [side1, side2].none? { |side| side == side3}
 Can we talk about</code>triangle.inject(-test_side,:+)`? WTF and FTW. It&rsquo;s testing if one side of the triangle is greater than the sum of the other two sides by seeding the inject method with a negative value for the side that it is testing against and then adding up the lengths of all sides on top of that. It&rsquo;s not particularly easy to follow, but it&rsquo;s fun to read and definitely gives you a sense of the personality behind it. The man behind the madness admits to being seduced by the allure of clever code, something that all ruby nubies must be susceptible to, and writes more about the inherent danger of choosing impressive code over expressive code <a href="http://jbarrieault.github.io/blog/2014/06/19/expressive/">here</a>.</p>
 
 <p>Now back to SQL&hellip; :(</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Teaching a New Dog Old Tricks]]></title>
-    <link href="http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks/"/>
-    <updated>2014-06-11T18:22:13-04:00</updated>
-    <id>http://vanessadean.github.io/blog/2014/06/11/teaching-a-new-dog-old-tricks</id>
-    <content type="html"><![CDATA[<p>This week at Flatiron School we started lectures on object orientation and during our discussion on <code>class</code> there was one example that really helped me understand some basic ruby concepts. Here is my own take on that example:
-```ruby
-class Dog
-  attr_accessor   :name, :breed
-  @@all_dogs = []</p>
-
-<p>  def initialize(name, breed=&ldquo;mutt&rdquo;)</p>
-
-<pre><code>@name = name
-@breed = breed
-@@all_dogs &lt;&lt; self
-</code></pre>
-
-<p>  end</p>
-
-<p>  def bark</p>
-
-<pre><code>puts "Woof! I'm #{self.name}."
-</code></pre>
-
-<p>  end</p>
-
-<p>  def howl</p>
-
-<pre><code>puts "#{self.name}: aRuuuuuuuuuubeee! Doo be doooo!"
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.all</p>
-
-<pre><code>@@all_dogs     
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.find_dogs_by_breed(breed)</p>
-
-<pre><code>self.all.select { |dog| dog.breed == breed }
-</code></pre>
-
-<p>  end
-end
-<code>``
-Let’s start at the top with attr_accessor. This is a familiar line of code and I know it is necessary for reading and writing to the variable</code>:name`, but I never thought about how it works. It wasn&rsquo;t until the moment that we discussed it in class that I understood that the code behind attr_accessor is this:</p>
-
-<p>```ruby
-def name=(name)
-  @name = name
-end</p>
-
-<p>def name
-  name
-end
-<code>
-This was especially helpful in clearing up my confusion about the equal sign I occasionally see in method names. This equal sign makes assigning a name look something like:
-</code>ruby
-fido.name = “Fido”
-<code>``
-which is a great example of how ruby’s flexible syntax makes it such a friendly language. The parenthesis can be dropped and a space added in front of the equal sign to mirror an algebraic assignment, instead of the equally valid but less familiar</code>fido.name=(“Fido”)`.</p>
-
-<p>We also discussed class methods and the concept of self in lecture. I was pretty clear on how instance methods work (like using fido.bark to make an instance of the Dog class bark), but class methods were a little hazier. In one our Flatiron School pre-work exercises there was a directive to “Create an array constant SCHOOLS that stores all instances of your School class.” I was like whaaah? But our Dog class has a nice example of how to approach that problem (explanation in the comments):</p>
-
-<p>```ruby
-  @@all_dogs = []  #a class variable is created to hold all instances of the Dog class in an array</p>
-
-<p>  def initialize(name, breed=“mutt”)</p>
-
-<pre><code>@name = name
-@breed = breed
-@@all_dogs &lt;&lt; self  #each time a new dog is initialized it is added to the all_dogs array
-</code></pre>
-
-<p>  end</p>
-
-<p>  def self.all  #a class method &lsquo;all&rsquo; is created to access the all_dogs array</p>
-
-<pre><code>@@all_dogs      
-</code></pre>
-
-<p>  end
-<code>
-It is important to note the `self` in the method signature of our `all` method. Self in this case is the Dog class. This method can be called on the class itself rather than an instance of the class. It is different from the self found here within the body of the instance method `bark`:
-</code>ruby
-  def bark</p>
-
-<pre><code>puts "Woof! I'm #{self.name}."
-</code></pre>
-
-<p>  end
-<code>``
-In this</code>bark` instance method, self is referring to an instance of the class (e.g. Fido) and not the Dog class.</p>
-
-<p>An instance method is useful if you want to perform an action on one particular instance of a class, but sometimes you want to call a method on the entire class. Here is an example: let&rsquo;s adopt some dogs. We can simulate this by creating several new instances of the Dog class:
-<code>ruby
-fido = Dog.new("Fido")  #no breed is provided because Fido is a mutt and that is the default value for breed
-snoopy = Dog.new("Snoopy", "Beagle")
-jacques = Dog.new("Jacques", "French Bulldog")
-chanel = Dog.new("Chanel", "French Bulldog")
-fifi = Dog.new("Fifi", "Poodle")
-</code>
-Now let&rsquo;s say that we want to order some monogrammed sweaters for our French Bulldogs. We can use our handy class method called <code>self.find_dogs_by_breed</code> to print out a list of our Frenchies' names like so:
-```ruby
-Dog.find_dogs_by_breed(&ldquo;French Bulldog&rdquo;).each do |dog|
-  puts &ldquo;#{dog.name}&rdquo;
-end</p>
-
-<h1>=> Jacques</h1>
-
-<h1>=> Chanel</h1>
-
-<p><code>
-Or say that we decide to teach our dogs a new party trick and we want all of them to howl in unison. We can use our class method `self.all` in conjunction with our instance method
-</code>ruby
-  def howl</p>
-
-<pre><code>puts "#{self.name}: aRuuuuuuuuuubeee! Doo be doooo!"
-</code></pre>
-
-<p>  end
-<code>
-to make all the instances of our Dog howl in symphony like so:
-</code>ruby
-Dog.all.each do |dog|
-  dog.howl
-end</p>
-
-<h1>=> Fido: aaaRuuuuuuubeee! Doo be doooo!</h1>
-
-<h1>=> Snoopy: aaaRuuuuuuubeee! Doo be doooo!</h1>
-
-<h1>=> Jacques: aaaRuuuuuuubeee! Doo be doooo!</h1>
-
-<h1>=> Chanel: aaaRuuuuuuubeee! Doo be doooo!</h1>
-
-<h1>=> Fifi: aaaRuuuuuuubeee! Doo be doooo!</h1>
-
-<p><code>``
-Looking at the self in the method signature for the class method</code>self.all<code>and the self within the body of the instance method</code>howl` and thinking about what each self is pointing to and why is key to understanding the notion of self in ruby.</p>
-
-<p>Oh, <del>love</del> <strong>ruby</strong> will make a dog howl in rhyme.
-&ndash; Francis Beaumont</p>
 ]]></content>
   </entry>
   
