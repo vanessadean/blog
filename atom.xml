@@ -4,7 +4,7 @@
   <title><![CDATA[Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-08-14T11:43:17-04:00</updated>
+  <updated>2014-08-14T11:48:29-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Setting Up Action Mailer With Mandrill]]></title>
     <link href="http://vanessadean.github.io/blog/2014/08/14/setting-up-action-mailer-with-mandrill/"/>
-    <updated>2014-08-14T00:00:00-04:00</updated>
+    <updated>2014-08-14T10:59:25-04:00</updated>
     <id>http://vanessadean.github.io/blog/2014/08/14/setting-up-action-mailer-with-mandrill</id>
     <content type="html"><![CDATA[<p>Setting up action mailer with Mandrill, like so many other things in Rails, is incredibly easy if you know exactly what you are supposed to do. If you are doing it for the first time though it&rsquo;s hard to know where to go for instructions. So here they are:</p>
 
