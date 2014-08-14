@@ -9,7 +9,7 @@
   <meta name="author" content="Vanessa Dean">
 
   
-  <meta name="description" content="The last couple of weeks studying Rails and JavaScript have been a little rough. I&rsquo;ve been feeling frustrated and having trouble staying &hellip;">
+  <meta name="description" content="Setting up action mailer with Mandrill, like so many other things in Rails, is incredibly easy if you know exactly what you are supposed to do. If &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -57,6 +57,76 @@
   <div id="main">
     <div id="content">
       
+
+
+    <article class="post">
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/14/setting-up-action-mailer-with-mandrill/">Setting Up Action Mailer With Mandrill</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-14T00:00:00-04:00" pubdate data-updated="true"></time>
+        
+           | <a href="/blog/2014/08/14/setting-up-action-mailer-with-mandrill/#disqus_thread"
+             data-disqus-identifier="http://vanessadean.github.io/blog/2014/08/14/setting-up-action-mailer-with-mandrill/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Setting up action mailer with Mandrill, like so many other things in Rails, is incredibly easy if you know exactly what you are supposed to do. If you are doing it for the first time though it&rsquo;s hard to know where to go for instructions. So here they are:</p>
+
+<ul>
+<li>Follow the instructions in the rails guide to set up <a href="http://guides.rubyonrails.org/action_mailer_basics.html">action mailer</a></li>
+<li>Sign up with <a href="http://mandrill.com/">Mandrill</a></li>
+<li>Create an API key (at the time of this was under settings > SMTP &amp; API Info)</li>
+<li>Follow Mandrill&rsquo;s instructions on <a href="http://help.mandrill.com/entries/21738467-Using-Mandrill-s-SMTP-integration-with-Web-Frameworks">integrating with Ruby on Rails</a></li>
+</ul>
+
+
+<p>This mainly consists of adding this to your config files:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">action_mailer</span><span class="o">.</span><span class="n">smtp_settings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>    <span class="ss">:address</span>   <span class="o">=&gt;</span> <span class="s2">&quot;smtp.mandrillapp.com&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:port</span>      <span class="o">=&gt;</span> <span class="mi">25</span><span class="p">,</span> <span class="c1"># ports 587 and 2525 are also supported with STARTTLS</span>
+</span><span class='line'>    <span class="ss">:enable_starttls_auto</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="c1"># detects and uses STARTTLS</span>
+</span><span class='line'>    <span class="ss">:user_name</span> <span class="o">=&gt;</span> <span class="s2">&quot;MANDRILL_USERNAME&quot;</span><span class="p">,</span>
+</span><span class='line'>    <span class="ss">:password</span>  <span class="o">=&gt;</span> <span class="s2">&quot;MANDRILL_PASSWORD&quot;</span><span class="p">,</span> <span class="c1"># SMTP password is any valid API key</span>
+</span><span class='line'>    <span class="ss">:authentication</span> <span class="o">=&gt;</span> <span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="c1"># Mandrill supports &#39;plain&#39; or &#39;login&#39;</span>
+</span><span class='line'>    <span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s1">&#39;yourdomain.com&#39;</span><span class="p">,</span> <span class="c1"># your domain to identify your server when connecting</span>
+</span><span class='line'>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then mail away!</p>
+</div>
+  
+  
+
+</article>
 
 
     <article class="post">
