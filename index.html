@@ -9,7 +9,7 @@
   <meta name="author" content="Vanessa Dean">
 
   
-  <meta name="description" content="Setting up action mailer with Mandrill, like so many other things in Rails, is incredibly easy if you know exactly what you are supposed to do. If &hellip;">
+  <meta name="description" content="This week at the Flatiron School (our last week, aaaahhhhhh!) we&rsquo;ve been covering some standard computer science topics like big O notation, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -58,6 +58,55 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/08/20/ajax-and-the-race-condition/">Ajax and the Race Condition</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-20T21:24:01-04:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time>
+        
+           | <a href="/blog/2014/08/20/ajax-and-the-race-condition/#disqus_thread"
+             data-disqus-identifier="http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>This week at the Flatiron School (our last week, aaaahhhhhh!) we&rsquo;ve been covering some standard computer science topics like big O notation, linked lists and race condition. So far I haven&rsquo;t used linked lists in any applications and I&rsquo;ve been spared worries about big O and time complexity, but the race condition is something that I&rsquo;ve contended with.</p>
+
+<p>The race condition is a problem programmers face when the output of a program is dependent on a sequence of events, but those events are not completed in the order that the programmer intended. The specific problem that I encountered with my team centered on two events:</p>
+
+<ol>
+<li><p>A function that calculated a specific stopping point on a travel route provided via the Google Maps API</p></li>
+<li><p>An ajax call to the Yelp API for restaurants near that stopping point</p></li>
+</ol>
+
+
+<p>The functions were being called in the appropriate order, but the second function kept firing off before the first function could finish its calculation of the requisite latitude and longitude coordinates for the Yelp search. Luckily our TA <a href="http://www.kthffmn.com/">Katie Hoffman</a> was on hand to provide some advice on addressing the issue. For details on how we managed the problem check out Catherine Meyers&#8217; spicy little blog post &ndash; <a href="http://anunexpectedcoder.com/blog/2014/08/10/premature-ajaxulation/">Premature Ajaxulation</a> &ndash; and see the results in action by checking out our app here: <a href="http://best-stop.herokuapp.com">Best Stop</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1134,6 +1183,10 @@ Or say that we decide to teach our dogs a new party trick and we want all of the
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/08/20/ajax-and-the-race-condition/">Ajax and the Race Condition</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2014/08/14/setting-up-action-mailer-with-mandrill/">Setting Up Action Mailer With Mandrill</a>
       </li>
     
@@ -1147,10 +1200,6 @@ Or say that we decide to teach our dogs a new party trick and we want all of the
     
       <li class="post">
         <a href="/blog/2014/07/10/doing-good/">Doing Well and Doing Good</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/06/25/yaml-time/">YAML Time</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Codemaster Extraordinaire]]></title>
   <link href="http://vanessadean.github.io/atom.xml" rel="self"/>
   <link href="http://vanessadean.github.io/"/>
-  <updated>2014-08-14T11:48:29-04:00</updated>
+  <updated>2014-08-20T22:30:17-04:00</updated>
   <id>http://vanessadean.github.io/</id>
   <author>
     <name><![CDATA[Vanessa Dean]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ajax and the Race Condition]]></title>
+    <link href="http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/"/>
+    <updated>2014-08-20T21:24:01-04:00</updated>
+    <id>http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition</id>
+    <content type="html"><![CDATA[<p>This week at the Flatiron School (our last week, aaaahhhhhh!) we&rsquo;ve been covering some standard computer science topics like big O notation, linked lists and race condition. So far I haven&rsquo;t used linked lists in any applications and I&rsquo;ve been spared worries about big O and time complexity, but the race condition is something that I&rsquo;ve contended with.</p>
+
+<p>The race condition is a problem programmers face when the output of a program is dependent on a sequence of events, but those events are not completed in the order that the programmer intended. The specific problem that I encountered with my team centered on two events:</p>
+
+<ol>
+<li><p>A function that calculated a specific stopping point on a travel route provided via the Google Maps API</p></li>
+<li><p>An ajax call to the Yelp API for restaurants near that stopping point</p></li>
+</ol>
+
+
+<p>The functions were being called in the appropriate order, but the second function kept firing off before the first function could finish its calculation of the requisite latitude and longitude coordinates for the Yelp search. Luckily our TA <a href="http://www.kthffmn.com/">Katie Hoffman</a> was on hand to provide some advice on addressing the issue. For details on how we managed the problem check out Catherine Meyers&#8217; spicy little blog post &ndash; <a href="http://anunexpectedcoder.com/blog/2014/08/10/premature-ajaxulation/">Premature Ajaxulation</a> &ndash; and see the results in action by checking out our app here: <a href="http://best-stop.herokuapp.com">Best Stop</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Setting Up Action Mailer With Mandrill]]></title>

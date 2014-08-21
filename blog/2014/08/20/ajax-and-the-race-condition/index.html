@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>I Made a Really Important App - Codemaster Extraordinaire</title>
+  <title>Ajax and the Race Condition - Codemaster Extraordinaire</title>
   <meta name="author" content="Vanessa Dean">
 
   
-  <meta name="description" content="The last couple of weeks studying Rails and JavaScript have been a little rough. I&rsquo;ve been feeling frustrated and having trouble staying &hellip;">
+  <meta name="description" content="This week at the Flatiron School (our last week, aaaahhhhhh!) we&rsquo;ve been covering some standard computer science topics like big O notation, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app">
+  <link rel="canonical" href="http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Codemaster Extraordinaire" type="application/atom+xml">
@@ -52,7 +52,7 @@
   
   <header>
     
-      <h1 class="entry-title">I Made a Really Important App</h1>
+      <h1 class="entry-title">Ajax and the Race Condition</h1>
     
     
       <p class="meta">
@@ -68,7 +68,7 @@
   
 
 
-<time datetime="2014-07-24T21:34:55-04:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time>
+<time datetime="2014-08-20T21:24:01-04:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://vanessadean.github.io">Comments</a>
@@ -78,10 +78,17 @@
   </header>
 
 
-<div class="entry-content"><p>The last couple of weeks studying Rails and JavaScript have been a little rough. I&rsquo;ve been feeling frustrated and having trouble staying motivated. So this week I decided to drop back into Sinatra to build a little app that would make me feel better.</p>
+<div class="entry-content"><p>This week at the Flatiron School (our last week, aaaahhhhhh!) we&rsquo;ve been covering some standard computer science topics like big O notation, linked lists and race condition. So far I haven&rsquo;t used linked lists in any applications and I&rsquo;ve been spared worries about big O and time complexity, but the race condition is something that I&rsquo;ve contended with.</p>
 
-<div style="margin: 0, auto;"><a href="http://buck-up.herokuapp.com/">Here it is.</a></div>
+<p>The race condition is a problem programmers face when the output of a program is dependent on a sequence of events, but those events are not completed in the order that the programmer intended. The specific problem that I encountered with my team centered on two events:</p>
 
+<ol>
+<li><p>A function that calculated a specific stopping point on a travel route provided via the Google Maps API</p></li>
+<li><p>An ajax call to the Yelp API for restaurants near that stopping point</p></li>
+</ol>
+
+
+<p>The functions were being called in the appropriate order, but the second function kept firing off before the first function could finish its calculation of the requisite latitude and longitude coordinates for the Yelp search. Luckily our TA <a href="http://www.kthffmn.com/">Katie Hoffman</a> was on hand to provide some advice on addressing the issue. For details on how we managed the problem check out Catherine Meyers&#8217; spicy little blog post &ndash; <a href="http://anunexpectedcoder.com/blog/2014/08/10/premature-ajaxulation/">Premature Ajaxulation</a> &ndash; and see the results in action by checking out our app here: <a href="http://best-stop.herokuapp.com">Best Stop</a></p>
 </div>
 
 
@@ -104,7 +111,7 @@
   
 
 
-<time datetime="2014-07-24T21:34:55-04:00" pubdate data-updated="true">Jul 24<span>th</span>, 2014</time>
+<time datetime="2014-08-20T21:24:01-04:00" pubdate data-updated="true">Aug 20<span>th</span>, 2014</time>
       
 
 <span class="categories">
@@ -118,7 +125,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app/" data-via="" data-counturl="http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/" data-via="" data-counturl="http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/" >Tweet</a>
   
   
   
@@ -127,10 +134,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/07/19/a-little-help-from-my-flatiron-friends/" title="Previous Post: A Little Help From My (Flatiron) Friends">&laquo; A Little Help From My (Flatiron) Friends</a>
+        <a class="basic-alignment left" href="/blog/2014/08/14/setting-up-action-mailer-with-mandrill/" title="Previous Post: Setting Up Action Mailer With Mandrill">&laquo; Setting Up Action Mailer With Mandrill</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2014/08/14/setting-up-action-mailer-with-mandrill/" title="Next Post: Setting Up Action Mailer With Mandrill">Setting Up Action Mailer With Mandrill &raquo;</a>
       
     </p>
   </footer>
@@ -196,8 +201,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app/';
-        var disqus_url = 'http://vanessadean.github.io/blog/2014/07/24/i-made-a-really-important-app/';
+        var disqus_identifier = 'http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/';
+        var disqus_url = 'http://vanessadean.github.io/blog/2014/08/20/ajax-and-the-race-condition/';
         var disqus_script = 'embed.js';
       
     (function () {
